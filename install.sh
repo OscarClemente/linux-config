@@ -47,6 +47,7 @@ rm -f ./nvim-linux64.deb
 
 echo "---- Getting Neovim config"
 # NEOVIM config
+
 git clone https://github.com/OscarClemente/turbonvim.git ~/.config/nvim
 
 echo "---- Installing latest Rust"
@@ -70,7 +71,7 @@ cd ..
 echo $password | sudo -S rm -r nerdfont/
 
 echo "---- Copying Kitty config"
-wget -P ~/.config/kitty/ https://github.com/OscarClemente/linux-config/raw/main/current-theme.config
+wget -P ~/.config/kitty/ https://github.com/OscarClemente/linux-config/raw/main/current-theme.conf
 wget -P ~/.config/kitty/ https://github.com/OscarClemente/linux-config/raw/main/kitty.conf
 
 echo "---- FINISHED. Restarting your system is recommended"

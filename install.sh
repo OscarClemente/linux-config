@@ -73,5 +73,6 @@ echo $password | sudo -S rm -r nerdfont/
 echo "---- Copying Kitty config"
 wget -P ~/.config/kitty/ https://github.com/OscarClemente/linux-config/raw/main/current-theme.conf
 wget -P ~/.config/kitty/ https://github.com/OscarClemente/linux-config/raw/main/kitty.conf
+wget -P ~/.config/fish/ https://github.com/OscarClemente/linux-config/raw/main/config.fish
 
 echo "---- FINISHED. Restarting your system is recommended"

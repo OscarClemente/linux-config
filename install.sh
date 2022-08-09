@@ -13,6 +13,9 @@ echo password | sudo -S apt install git
 echo "---- Installing Curl"
 echo password | sudo -S apt install curl -y
 
+echo "---- Installing Tmux"
+echo password | sudo -S apt install tmux -y
+
 echo "---- Installing latest Kitty terminal"
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 echo "---- Configuring Kitty terminal"
@@ -64,3 +67,8 @@ echo password | sudo -S cp * /usr/share/fonts/hack
 cd ..
 echo password | sudo -S rm -r nerdfont/
 
+echo "---- Copying Kitty config"
+wget -P ~/.config/kitty https://github.com/OscarClemente/linux-config/raw/main/current-theme.config
+wget -P ~/.config/kitty https://github.com/OscarClemente/linux-config/raw/main/kitty.conf
+
+echo "---- FINISHED. Restarting your system is recommended"

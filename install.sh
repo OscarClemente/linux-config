@@ -4,9 +4,19 @@ echo -n Password:
 read -s password
 echo
 
+echo "..."
+echo "---- Adding PPAs"
+# Add regolith PPA for i3-gaps
+wget -qO - https://regolith-desktop.org/regolith.key | \
+gpg --dearmor | sudo tee /usr/share/keyrings/regolith-archive-keyring.gpg > /dev/null
+echo deb "[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] \
+https://regolith-desktop.org/release-ubuntu-jammy-amd64 jammy main" | \
+sudo tee /etc/apt/sources.list.d/regolith.list
+# Add git-core for latest git
+echo $password | sudo -S add-apt-repository ppa:git-core/ppa
+
 # GIT
 echo "---- Installing Git from added apt"
-echo $password | sudo -S add-apt-repository ppa:git-core/ppa
 echo $password | sudo -S apt update
 echo $password | sudo -S apt install git -y
 
@@ -37,7 +47,7 @@ echo $password | sudo -S apt install libtinfo5
 wget -O fishbin 'https://launchpad.net/~fish-shell/+archive/ubuntu/release-3/+files/fish_3.5.1-1~xenial_amd64.deb'
 echo $password | sudo -S dpkg -i fishbin
 rm fishbin
-echo $password | sudo -S chsh -s $(which fish)
+echo $password | sudo -S chsh -s /usr/bin/fish 
 
 echo "---- Installing Neovim 0.7.2"
 # NEOVIM
@@ -77,3 +87,6 @@ wget -P ~/.config/kitty/ https://github.com/OscarClemente/linux-config/raw/main/
 wget -P ~/.config/fish/ https://github.com/OscarClemente/linux-config/raw/main/config.fish
 
 echo "---- FINISHED. Restarting your system is recommended"
+
+echo "---- Installing i3-gaps"
+echo $password | sudo -S apt install i3-gaps

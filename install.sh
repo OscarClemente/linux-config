@@ -8,7 +8,7 @@ echo
 echo "---- Installing Git from added apt"
 echo $password | sudo -S add-apt-repository ppa:git-core/ppa
 echo $password | sudo -S apt update
-echo $password | sudo -S apt install git
+echo $password | sudo -S apt install git -y
 
 echo "---- Installing Curl"
 echo $password | sudo -S apt install curl -y

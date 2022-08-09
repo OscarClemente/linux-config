@@ -6,15 +6,15 @@ echo
 
 # GIT
 echo "---- Installing Git from added apt"
-echo password | sudo -S add-apt-repository ppa:git-core/ppa
-echo password | sudo -S apt update
-echo password | sudo -S apt install git
+echo $password | sudo -S add-apt-repository ppa:git-core/ppa
+echo $password | sudo -S apt update
+echo $password | sudo -S apt install git
 
 echo "---- Installing Curl"
-echo password | sudo -S apt install curl -y
+echo $password | sudo -S apt install curl -y
 
 echo "---- Installing Tmux"
-echo password | sudo -S apt install tmux -y
+echo $password | sudo -S apt install tmux -y
 
 echo "---- Installing latest Kitty terminal"
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
@@ -33,16 +33,16 @@ sed -i "s|Exec=kitty|Exec=/home/$USER/.local/kitty.app/bin/kitty|g" ~/.local/sha
 
 echo "---- Installing FISH shell"
 # FISH shell
-echo password | sudo -S apt install libtinfo5
-TEMP_DEB="$(mktemp)"
-wget -O "$TEMP_DEB" 'https://launchpad.net/~fish-shell/+archive/ubuntu/release-3/+files/fish_3.5.1-1~xenial_amd64.deb'
-echo password | sudo -S dpkg -i "$TEMP_DEB"
-chsh -s $(which fish)
+echo $password | sudo -S apt install libtinfo5
+wget -O fishbin 'https://launchpad.net/~fish-shell/+archive/ubuntu/release-3/+files/fish_3.5.1-1~xenial_amd64.deb'
+echo $password | sudo -S dpkg -i fishbin
+rm fishbin
+echo $password | sudo -S chsh -s $(which fish)
 
 echo "---- Installing Neovim 0.7.2"
 # NEOVIM
 wget -O nvim-linux64.dev 'https://github.com/neovim/neovim/releases/download/v0.7.2/nvim-linux64.deb'
-echo password | sudo -S apt install ./nvim-linux64.dev
+echo $password | sudo -S apt install ./nvim-linux64.dev
 rm -f ./nvim-linux64.dev
 
 echo "---- Getting Neovim config"
@@ -53,7 +53,7 @@ echo "---- Installing latest Rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 echo "---- Installing Go 1.19"
-echo password | sudo -S tar -C /usr/local -xzf go1.19.linux-amd64.tar.gz
+echo $password | sudo -S tar -C /usr/local -xzf go1.19.linux-amd64.tar.gz
 
 echo "---- Installing Hack Nerd font"
 mkdir nerdfont
@@ -62,13 +62,13 @@ wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regul
 wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Italic/complete/Hack%20Italic%20Nerd%20Font%20Complete%20Mono.ttf
 wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/BoldItalic/complete/Hack%20Bold%20Italic%20Nerd%20Font%20Complete%20Mono.ttf
 wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Bold/complete/Hack%20Bold%20Nerd%20Font%20Complete%20Mono.ttf
-echo password | sudo -S mkdir /usr/share/fonts/hack
-echo password | sudo -S cp * /usr/share/fonts/hack
+echo $password | sudo -S mkdir /usr/share/fonts/hack
+echo $password | sudo -S cp * /usr/share/fonts/hack
 cd ..
-echo password | sudo -S rm -r nerdfont/
+echo $password | sudo -S rm -r nerdfont/
 
 echo "---- Copying Kitty config"
-wget -P ~/.config/kitty https://github.com/OscarClemente/linux-config/raw/main/current-theme.config
-wget -P ~/.config/kitty https://github.com/OscarClemente/linux-config/raw/main/kitty.conf
+wget -P ~/.config/kitty/ https://github.com/OscarClemente/linux-config/raw/main/current-theme.config
+wget -P ~/.config/kitty/ https://github.com/OscarClemente/linux-config/raw/main/kitty.conf
 
 echo "---- FINISHED. Restarting your system is recommended"

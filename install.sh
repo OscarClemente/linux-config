@@ -49,6 +49,7 @@ echo "---- Getting Neovim config"
 # NEOVIM config
 
 git clone https://github.com/OscarClemente/turbonvim.git ~/.config/nvim
+git config --global core.editor "nvim"
 
 echo "---- Installing latest Rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y

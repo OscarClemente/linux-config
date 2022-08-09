@@ -41,19 +41,21 @@ echo $password | sudo -S chsh -s $(which fish)
 
 echo "---- Installing Neovim 0.7.2"
 # NEOVIM
-wget -O nvim-linux64.dev 'https://github.com/neovim/neovim/releases/download/v0.7.2/nvim-linux64.deb'
-echo $password | sudo -S apt install ./nvim-linux64.dev
-rm -f ./nvim-linux64.dev
+wget -O nvim-linux64.deb 'https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb'
+echo $password | sudo -S apt install ./nvim-linux64.deb
+rm -f ./nvim-linux64.deb
 
 echo "---- Getting Neovim config"
 # NEOVIM config
 git clone https://github.com/OscarClemente/turbonvim.git ~/.config/nvim
 
 echo "---- Installing latest Rust"
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 echo "---- Installing Go 1.19"
+wget https://go.dev/dl/go1.19.linux-amd64.tar.gz
 echo $password | sudo -S tar -C /usr/local -xzf go1.19.linux-amd64.tar.gz
+rm go1.19.linux-amd64.tar.gz
 
 echo "---- Installing Hack Nerd font"
 mkdir nerdfont

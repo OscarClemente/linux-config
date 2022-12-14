@@ -11,7 +11,7 @@ wget -qO - https://regolith-desktop.org/regolith.key | \
 gpg --dearmor | sudo tee /usr/share/keyrings/regolith-archive-keyring.gpg > /dev/null
 echo deb "[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] \
 https://regolith-desktop.org/release-ubuntu-jammy-amd64 jammy main" | \
-sudo tee /etc/apt/sources.list.d/regolith.list
+echo $password | sudo -S tee /etc/apt/sources.list.d/regolith.list
 # Add git-core for latest git
 echo $password | sudo -S add-apt-repository ppa:git-core/ppa
 
@@ -54,6 +54,9 @@ echo "---- Installing Neovim 0.7.2"
 wget -O nvim-linux64.deb 'https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb'
 echo $password | sudo -S apt install ./nvim-linux64.deb
 rm -f ./nvim-linux64.deb
+
+# RIPGREP for neovim treesitter
+echo $password | sudo -S apt install ripgrep -y
 
 echo "---- Getting Neovim config"
 # NEOVIM config

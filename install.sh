@@ -49,7 +49,7 @@ echo $password | sudo -S dpkg -i fishbin
 rm fishbin
 echo $password | sudo -S chsh -s /usr/bin/fish 
 
-echo "---- Installing Neovim 0.7.2"
+echo "---- Installing Neovim Nightly"
 # NEOVIM
 wget -O nvim-linux64.deb 'https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb'
 echo $password | sudo -S apt install ./nvim-linux64.deb
@@ -89,7 +89,7 @@ wget -P ~/.config/kitty/ https://github.com/OscarClemente/linux-config/raw/main/
 wget -P ~/.config/kitty/ https://github.com/OscarClemente/linux-config/raw/main/kitty.conf
 wget -P ~/.config/fish/ https://github.com/OscarClemente/linux-config/raw/main/config.fish
 
-echo "---- FINISHED. Restarting your system is recommended"
-
 echo "---- Installing i3-gaps"
 echo $password | sudo -S apt install i3-gaps
+
+echo "---- FINISHED. Restarting your system is recommended"

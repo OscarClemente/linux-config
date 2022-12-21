@@ -6,12 +6,6 @@ echo
 
 echo "..."
 echo "---- Adding PPAs"
-# Add regolith PPA for i3-gaps
-wget -qO - https://regolith-desktop.org/regolith.key | \
-gpg --dearmor | sudo tee /usr/share/keyrings/regolith-archive-keyring.gpg > /dev/null
-echo deb "[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] \
-https://regolith-desktop.org/release-ubuntu-jammy-amd64 jammy main" | \
-echo $password | sudo -S tee /etc/apt/sources.list.d/regolith.list
 # Add git-core for latest git
 echo $password | sudo -S add-apt-repository ppa:git-core/ppa
 
@@ -68,9 +62,9 @@ echo "---- Installing latest Rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 echo "---- Installing Go 1.19"
-wget https://go.dev/dl/go1.19.linux-amd64.tar.gz
-echo $password | sudo -S tar -C /usr/local -xzf go1.19.linux-amd64.tar.gz
-rm go1.19.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.19.4.linux-amd64.tar.gz
+echo $password | sudo -S tar -C /usr/local -xzf go1.19.4.linux-amd64.tar.gz
+rm go1.19.4.linux-amd64.tar.gz
 
 echo "---- Installing Hack Nerd font"
 mkdir nerdfont
@@ -89,7 +83,5 @@ wget -P ~/.config/kitty/ https://github.com/OscarClemente/linux-config/raw/main/
 wget -P ~/.config/kitty/ https://github.com/OscarClemente/linux-config/raw/main/kitty.conf
 wget -P ~/.config/fish/ https://github.com/OscarClemente/linux-config/raw/main/config.fish
 
-echo "---- Installing i3-gaps"
-echo $password | sudo -S apt install i3-gaps
-
 echo "---- FINISHED. Restarting your system is recommended"
+echo "---- You will still need to save the plugin file inside nvim config and get the LSP plugins with Mason"

@@ -62,9 +62,9 @@ echo "---- Installing latest Rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 echo "---- Installing Go 1.19"
-wget https://go.dev/dl/go1.19.4.linux-amd64.tar.gz
-echo $password | sudo -S tar -C /usr/local -xzf go1.19.4.linux-amd64.tar.gz
-rm go1.19.4.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.20.3.linux-amd64.tar.gz
+echo $password | sudo -S tar -C /usr/local -xzf go1.20.3.linux-amd64.tar.gz
+rm go1.20.3.linux-amd64.tar.gz
 
 echo "---- Installing Hack Nerd font"
 mkdir nerdfont

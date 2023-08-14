@@ -38,7 +38,7 @@ sed -i "s|Exec=kitty|Exec=/home/$USER/.local/kitty.app/bin/kitty|g" ~/.local/sha
 echo "---- Installing FISH shell"
 # FISH shell
 echo $password | sudo -S apt install libtinfo5
-wget -O fishbin 'https://launchpad.net/~fish-shell/+archive/ubuntu/release-3/+files/fish_3.5.1-1~xenial_amd64.deb'
+wget -O fishbin 'https://launchpad.net/~fish-shell/+archive/ubuntu/release-3/+files/fish_3.6.1-1~jammy_amd64.deb'
 echo $password | sudo -S dpkg -i fishbin
 rm fishbin
 echo $password | sudo -S chsh -s /usr/bin/fish 
@@ -67,10 +67,10 @@ rm go1.21.0.linux-amd64.tar.gz
 echo "---- Installing Hack Nerd font"
 mkdir nerdfont
 cd nerdfont
-wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
-wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Italic/complete/Hack%20Italic%20Nerd%20Font%20Complete%20Mono.ttf
-wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/BoldItalic/complete/Hack%20Bold%20Italic%20Nerd%20Font%20Complete%20Mono.ttf
-wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Bold/complete/Hack%20Bold%20Nerd%20Font%20Complete%20Mono.ttf
+wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/HackNerdFont-Regular.ttf
+wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Italic/HackNerdFontMono-Italic.ttf
+wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/BoldItalic/HackNerdFontMono-BoldItalic.ttf
+wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Bold/HackNerdFontMono-Bold.ttf
 echo $password | sudo -S mkdir /usr/share/fonts/hack
 echo $password | sudo -S cp * /usr/share/fonts/hack
 cd ..

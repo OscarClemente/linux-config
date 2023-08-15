@@ -53,7 +53,7 @@ echo $password | sudo -S apt install ripgrep -y
 echo "---- Getting Neovim config"
 # NEOVIM config
 
-git clone https://github.com/OscarClemente/turbonvim.git ~/.config/nvim
+git clone https://github.com/OscarClemente/nvim-conf.git ~/.config/nvim
 git config --global core.editor "nvim"
 
 echo "---- Installing latest Rust"

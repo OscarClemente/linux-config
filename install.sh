@@ -45,8 +45,8 @@ echo $password | sudo -S chsh -s /usr/bin/fish
 
 echo "---- Installing Neovim Nightly"
 # NEOVIM
-echo $password | sudo snap install --edge nvim --classic
 wget -O nvim.appimage 'https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage'
+echo $password | chmod u+x nvim.appimage
 echo $password | ln nvim.appimage /usr/bin/nvim
 
 # RIPGREP for neovim treesitter

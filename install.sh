@@ -42,12 +42,13 @@ wget -O fishbin 'https://launchpad.net/~fish-shell/+archive/ubuntu/release-3/+fi
 echo $password | sudo -S dpkg -i fishbin
 rm fishbin
 echo $password | sudo -S chsh -s /usr/bin/fish 
+echo $password | apt install libxcb-xkb-dev -y
 
 echo "---- Installing Neovim Nightly"
 # NEOVIM
 wget -O nvim.appimage 'https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage'
 echo $password | chmod u+x nvim.appimage
-echo $password | ln nvim.appimage /usr/bin/nvim
+echo $password | sudo ln nvim.appimage /usr/bin/nvim
 
 # RIPGREP for neovim treesitter
 echo $password | sudo -S apt install ripgrep -y

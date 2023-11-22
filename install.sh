@@ -83,6 +83,7 @@ echo "---- Copying Kitty config"
 wget -P ~/.config/kitty/ https://github.com/OscarClemente/linux-config/raw/main/current-theme.conf
 wget -P ~/.config/kitty/ https://github.com/OscarClemente/linux-config/raw/main/kitty.conf
 wget -P ~/.config/fish/ https://github.com/OscarClemente/linux-config/raw/main/config.fish
+wget -P ~/. https://github.com/OscarClemente/linux-config/raw/main/.tmux.conf
 
 echo "---- FINISHED. Restarting your system is recommended"
 echo "---- You will still need to save the plugin file inside nvim config and get the LSP plugins with Mason"
